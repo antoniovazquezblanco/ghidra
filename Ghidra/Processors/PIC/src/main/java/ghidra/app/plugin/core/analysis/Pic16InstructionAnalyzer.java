@@ -39,6 +39,7 @@ public class Pic16InstructionAnalyzer extends AbstractAnalyzer {
 	private ReferenceManager mRefMgr;
 	private BookmarkManager mBookmarkManager;
 
+	private Pic16WregContextBuilder mWregContext;
 	private Pic16PclathContextBuilder mPclathContext;
 
 	private AddressSet mNewDisassemblyPoints;
@@ -56,6 +57,7 @@ public class Pic16InstructionAnalyzer extends AbstractAnalyzer {
 		mRefMgr = program.getReferenceManager();
 		mBookmarkManager = program.getBookmarkManager();
 
+		mWregContext = new Pic16WregContextBuilder(program);
 		mPclathContext = new Pic16PclathContextBuilder(program);
 
 		mNewDisassemblyPoints = new AddressSet();
@@ -64,7 +66,8 @@ public class Pic16InstructionAnalyzer extends AbstractAnalyzer {
 		InstructionIterator instIter = mListing.getInstructions(set, true);
 		while (!monitor.isCancelled() && instIter.hasNext()) {
 			Instruction instr = instIter.next();
-			// First try to update PCLATH to be able to handle jumps and calls...
+			// First try to update register values...
+			mWregContext.processInstruction(instr);
 			mPclathContext.processInstruction(instr);
 			handleCallOrBranch(instr);
 		}
