@@ -104,9 +104,9 @@ public class Pic16Analyzer extends ConstantPropagationAnalyzer {
 			@Override
 			public boolean evaluateDestination(VarnodeContext context, Instruction instruction) {
 				FlowType flowType = instruction.getFlowType();
-				if (!flowType.isFlow()) {
+				/*if (!flowType.isFlow()) {
 					return false;
-				}
+				}*/
 				
 				Reference[] refs = instruction.getReferencesFrom();
 				if (refs.length == 1 && refs[0].getReferenceType().isFlow()) {
