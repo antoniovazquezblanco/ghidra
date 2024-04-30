@@ -27,4 +27,16 @@
     <compiler name="default" spec="pic16f.cspec" id="default"/>
     <external_name tool="IDA-PRO" name="pic16fxx"/>
   </language>
+  <language processor="PIC-16"
+            endian="little"
+            size="16"
+            variant="PIC-16F716"
+            version="1.2"
+            slafile="pic16.sla"
+            processorspec="pic16f716.pspec"
+            manualindexfile="../manuals/PIC-16F716.idx"
+            id="PIC-16:LE:16:PIC-16F716">
+    <description>PIC-16(L)F716</description>
+    <compiler name="default" spec="pic16.cspec" id="default"/>
+  </language>
 </language_definitions>
