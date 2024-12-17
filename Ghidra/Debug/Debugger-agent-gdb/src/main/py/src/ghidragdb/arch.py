@@ -78,6 +78,7 @@ language_map = {
     'sh4': ['SuperH4:BE:32:default', 'SuperH4:LE:32:default'],
     'sparc:v9b': ['sparc:BE:32:default', 'sparc:BE:64:default'],
     'xscale': ['ARM:BE:32:v6', 'ARM:LE:32:v6'],
+    'xtensa': ['Xtensa:BE:32:default', 'Xtensa:LE:32:default'],
     'z80': ['z80:LE:16:default', 'z8401x:LE:16:default']
 }
 
